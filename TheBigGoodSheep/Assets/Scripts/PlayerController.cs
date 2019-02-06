@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [System.Serializable]
 public class Boundary
@@ -14,12 +12,25 @@ public class PlayerController : MonoBehaviour {
 	public Boundary boundary;
 	Rigidbody2D rigidbody2d;
 
+	public GameObject iceCream;
+	public Transform iceCreamSpawn;
+	public float fireRate;
+	private float nextFire;
+
 	// Use this for initialization
 	void Start () {
 		rigidbody2d = GetComponent<Rigidbody2D>();
 	}
 	
-	// Update is called once per frame
+	void Update()
+	{
+		if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+		{
+			nextFire = Time.time + fireRate;
+			GameObject clone = Instantiate(iceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
+		}
+	}
+	
 	void FixedUpdate () {
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
