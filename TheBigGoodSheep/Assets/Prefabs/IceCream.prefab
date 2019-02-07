@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 50988627051233520}
   - component: {fileID: 61246807823981280}
   - component: {fileID: 114383355779203832}
+  - component: {fileID: 114256515646400396}
   m_Layer: 0
   m_Name: IceCream
   m_TagString: Untagged
@@ -117,6 +118,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114256515646400396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1773728254646594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a05a1bafbc7894ebe2ed238b798032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 180
 --- !u!114 &114383355779203832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  lifeTime: 180
 --- !u!212 &212383629640959226
 SpriteRenderer:
   m_ObjectHideFlags: 1
