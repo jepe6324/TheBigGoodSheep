@@ -15,14 +15,15 @@ public class Destroyer : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Destroy(other.gameObject);
-		Destroy(gameObject);
 
 		if (other.gameObject.CompareTag("Sheep"))
 		{
 			// AudioSource.PlayClipAtPoint(killSound, new Vector2(0, 0), 1.0f); // This line could be repurposed as a hit sound.
 			//Instantiate(explosion, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); // This line could be repurposed as a hit effect
 			Destroy(gameObject);
+			Destroy(other.gameObject);
 		}
+		else
+			return;
 	}
 }
