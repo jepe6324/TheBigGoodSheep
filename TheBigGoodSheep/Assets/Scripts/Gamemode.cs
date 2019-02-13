@@ -22,7 +22,7 @@ public class Gamemode : MonoBehaviour {
 		{
 			iceCreamTimer--;	// Remove one second from the icecream timer
 			frames = 0;			// Reset the frame counter to 0 again so that we can start counting on the second
-			if (iceCreamTimer == 0)
+			if (iceCreamTimer <= 0)
 			{
 				SceneManager.LoadScene("GameOver"); // If the icecream timer reaches 0 we lose
 			}

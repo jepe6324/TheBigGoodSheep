@@ -3,13 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Destroyer : MonoBehaviour {
-	public float lifeTime;
+
+	public float xDeathPos;
+	private string leftOrRight; // This will be set at spawn to deduce weather the object is moving to the right or left.
+
+	void Start()
+	{
+		if (transform.position.x > xDeathPos)
+		{
+			leftOrRight = "Left";
+		}
+		else
+			leftOrRight = "Right";
+	}
 
 	void Update()
 	{
-		lifeTime--;
-		if (lifeTime <= 0) // If the timer reaches 0 the icecream despawns
+		if (transform.position.x  <= xDeathPos && leftOrRight == "Left") // If the timer reaches 0 the icecream despawns
 			Destroy(this.gameObject);
+		else if (transform.position.x >= xDeathPos && leftOrRight == "Right")
+		{
+			Destroy(this.gameObject);
+		}
 	}
 
 
@@ -20,8 +35,7 @@ public class Destroyer : MonoBehaviour {
 		{
 			// AudioSource.PlayClipAtPoint(killSound, new Vector2(0, 0), 1.0f); // This line could be repurposed as a hit sound.
 			//Instantiate(explosion, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); // This line could be repurposed as a hit effect
-			Destroy(gameObject);
-			Destroy(other.gameObject);
+			Destroy(this.gameObject);
 		}
 		else
 			return;

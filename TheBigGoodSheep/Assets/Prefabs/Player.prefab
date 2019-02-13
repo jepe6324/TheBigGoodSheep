@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85652751c02d2664d8abf687b6a4fd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iceCreamTimer: 5
+  iceCreamTimer: 20
   iceCubeValue: 5
 --- !u!114 &114673044514291138
 MonoBehaviour:

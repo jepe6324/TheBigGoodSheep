@@ -10,16 +10,19 @@ public class PlayerController : MonoBehaviour {
 	public float speedX;
 	public float speedY;
 	public Boundary boundary;
-	Rigidbody2D rigidbody2d;
 
 	public GameObject iceCream;
 	public Transform iceCreamSpawn;
 	public float fireRate;
+
 	private float nextFire;
+	Rigidbody2D myRigidbody;
+	Gamemode myGamemode;
 
 	// Use this for initialization
 	void Start () {
-		rigidbody2d = GetComponent<Rigidbody2D>();
+		myRigidbody = GetComponent<Rigidbody2D>();
+		myGamemode = GetComponent<Gamemode>();
 	}
 	
 	void Update()
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			nextFire = Time.time + fireRate;
 			GameObject clone = Instantiate(iceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
+			myGamemode.iceCreamTimer--;
 		}
 	}
 	
@@ -38,7 +42,7 @@ public class PlayerController : MonoBehaviour {
 
 		movement.x *= speedX;
 		movement.y *= speedY;
-		rigidbody2d.velocity = movement;
+		myRigidbody.velocity = movement;
 
 
 		//if (moveHorizontal != 0)
@@ -46,8 +50,8 @@ public class PlayerController : MonoBehaviour {
 		//if (moveVertical != 0)
 		//	Debug.Log(movement.y * speedY);
 
-		rigidbody2d.position = new Vector2(
-			Mathf.Clamp(rigidbody2d.position.x, boundary.xMin, boundary.xMax),
-			Mathf.Clamp(rigidbody2d.position.y, boundary.yMin, boundary.yMax));
+		myRigidbody.position = new Vector2(
+			Mathf.Clamp(myRigidbody.position.x, boundary.xMin, boundary.xMax),
+			Mathf.Clamp(myRigidbody.position.y, boundary.yMin, boundary.yMax));
 	}
 }
