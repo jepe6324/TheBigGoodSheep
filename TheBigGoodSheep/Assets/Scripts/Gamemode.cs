@@ -2,16 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Gamemode : MonoBehaviour {
 
 	public int iceCreamTimer;
 	public int iceCubeValue;
+	public Text timerText;
+	public Text scoreText;
 
 	private int frames;
+	private int score;
 	// Use this for initialization
 	void Start () {
-
+		score = 0;
 	}
 	
 	// Update is called once per frame
@@ -27,6 +31,9 @@ public class Gamemode : MonoBehaviour {
 				SceneManager.LoadScene("GameOver"); // If the icecream timer reaches 0 we lose
 			}
 		}
+
+		timerText.text = "" + iceCreamTimer;
+		scoreText.text = "" + score;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -42,5 +49,15 @@ public class Gamemode : MonoBehaviour {
 		{
 			return;
 		}
+	}
+
+	void SheepSatisfied() // This should be called when a sheep is fed with the right color
+	{
+		score += 100;
+	}
+
+	void SheepUnsatisfied() // This should be called when a sheep is fed with the wrong color, or not at all.
+	{
+		score -= 50;
 	}
 }
