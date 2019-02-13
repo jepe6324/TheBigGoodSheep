@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4867132819331910}
   - component: {fileID: 50323773713027756}
   - component: {fileID: 114783425532688552}
+  - component: {fileID: 114849535063242672}
   - component: {fileID: 61315153639828392}
   m_Layer: 0
   m_Name: IceCube
@@ -115,7 +116,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.4}
   m_EdgeRadius: 0
 --- !u!114 &114783425532688552
 MonoBehaviour:
@@ -128,7 +129,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3c3efaa7c3e1347a44aed1b9dec4c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2
+  speed: -2.2
+--- !u!114 &114849535063242672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318295840901008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a05a1bafbc7894ebe2ed238b798032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xDeathPos: -9
 --- !u!212 &212348251970891464
 SpriteRenderer:
   m_ObjectHideFlags: 1
