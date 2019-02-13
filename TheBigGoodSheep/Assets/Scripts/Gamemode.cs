@@ -33,7 +33,6 @@ public class Gamemode : MonoBehaviour {
 		}
 
 		timerText.text = "" + iceCreamTimer;
-		scoreText.text = "" + score;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
