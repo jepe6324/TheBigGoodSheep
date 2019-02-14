@@ -10,7 +10,6 @@ public class EnemySatisfaction : MonoBehaviour {
 
 	private SpriteRenderer mySpriteRenderer;
 	private BoxCollider2D myCollider;
-	private Gamemode myGamemode;
 	private bool satisfaction;
 
 	// Use this for initialization
@@ -19,6 +18,7 @@ public class EnemySatisfaction : MonoBehaviour {
         satisfaction = false;
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		myCollider = GetComponentInChildren<BoxCollider2D>();
+        MusicSource.clip = MusicClip;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -28,15 +28,7 @@ public class EnemySatisfaction : MonoBehaviour {
 			mySpriteRenderer.sprite = satisfiedSprite;
 			satisfaction = true;
 			Destroy(myCollider);
+            MusicSource.Play();
 		}
 	}
 }
-
-
-		GameObject player = GameObject.FindWithTag("Player");
-
-		if (player != null)
-			myGamemode = player.GetComponent<Gamemode>();
-		else
-			Debug.Log("Cannot find 'Player' object!");
-        MusicSource.clip = MusicClip;

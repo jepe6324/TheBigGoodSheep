@@ -162,20 +162,6 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1346236536911942, guid: 07615370f0d97224b81a36b8c3e3655e, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: sheepValue
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: negativeSheepValue
-      value: 50
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07615370f0d97224b81a36b8c3e3655e, type: 2}
   m_IsPrefabAsset: 0
