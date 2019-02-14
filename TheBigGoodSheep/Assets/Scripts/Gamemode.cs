@@ -11,15 +11,20 @@ public class Gamemode : MonoBehaviour {
 	public Text timerText;
 	public Text scoreText;
 
-	private int frames;
+    public AudioClip MusicClip;
+    public AudioSource MusicSource;
+
+    private int frames;
 	private int score;
 	// Use this for initialization
 	void Start () {
 		score = 0;
-	}
+        MusicSource.clip = MusicClip;
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
 		frames++; // Every frame we increment the frame counter
 
 		if (frames == 60) // When the frame counter reaches 60 a whole second has passed
@@ -40,7 +45,8 @@ public class Gamemode : MonoBehaviour {
 		if (other.tag == "IceCube") // Checks the other objects tag to see if it is a "IceCube"
 		{ // If it is do the things that it should do when getting into contact with an IceCube
 			Destroy(other.gameObject);
-			iceCreamTimer += iceCubeValue;
+            MusicSource.Play();
+            iceCreamTimer += iceCubeValue;
 			frames = 0;
 			return;
 		}
