@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 61402528803960436}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,9 +188,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iceCreamTimer: 20
-  iceCubeValue: 5
   timerText: {fileID: 0}
   scoreText: {fileID: 0}
+  iceCubeValue: 5
+  sheepValue: 0
+  negativeSheepValue: 0
 --- !u!114 &114673044514291138
 MonoBehaviour:
   m_ObjectHideFlags: 1
