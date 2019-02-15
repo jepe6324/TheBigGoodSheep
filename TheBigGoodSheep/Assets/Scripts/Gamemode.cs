@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Gamemode : MonoBehaviour {
 
 	public int iceCreamTimer;
-	public int iceCubeValue;
 	public Text timerText;
 	public Text scoreText;
 
@@ -16,10 +15,12 @@ public class Gamemode : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		score = 0;
-	}
+        MusicSource.clip = MusicClip;
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
 		frames++; // Every frame we increment the frame counter
 
 		if (frames == 60) // When the frame counter reaches 60 a whole second has passed
@@ -33,6 +34,7 @@ public class Gamemode : MonoBehaviour {
 		}
 
 		timerText.text = "" + iceCreamTimer;
+		scoreText.text = "" + score;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -40,7 +42,8 @@ public class Gamemode : MonoBehaviour {
 		if (other.tag == "IceCube") // Checks the other objects tag to see if it is a "IceCube"
 		{ // If it is do the things that it should do when getting into contact with an IceCube
 			Destroy(other.gameObject);
-			iceCreamTimer += iceCubeValue;
+            MusicSource.Play();
+            iceCreamTimer += iceCubeValue;
 			frames = 0;
 			return;
 		}
@@ -52,11 +55,30 @@ public class Gamemode : MonoBehaviour {
 
 	void SheepSatisfied() // This should be called when a sheep is fed with the right color
 	{
-		score += 100;
+		score += sheepValue;
 	}
 
 	void SheepUnsatisfied() // This should be called when a sheep is fed with the wrong color, or not at all.
 	{
-		score -= 50;
+		score -= negativeSheepValue;
 	}
 }
+
+	public int iceCubeValue;
+	public int sheepValue; // The value of correctly satisfying a sheep
+	public int negativeSheepValue; // The amount to deduce when failing to satisfy a sheep
+
+	private int frames;
+    public AudioClip MusicClip;
+    public AudioSource MusicSource;
+
+    private int frames;
+	public int iceCubeValue;
+	public int sheepValue; // The value of correctly satisfying a sheep
+	public int negativeSheepValue; // The amount to deduce when failing to satisfy a sheep
+
+	private int frames;
+    public AudioClip MusicClip;
+    public AudioSource MusicSource;
+
+    private int frames;

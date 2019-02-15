@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour {
 	public float speedY;
 	public Boundary boundary;
 
+    public AudioClip MusicClip;
+    public AudioSource MusicSource;
+
 	public GameObject iceCream;
 	public Transform iceCreamSpawn;
 	public float fireRate;
@@ -23,7 +26,8 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		myRigidbody = GetComponent<Rigidbody2D>();
 		myGamemode = GetComponent<Gamemode>();
-	}
+        MusicSource.clip = MusicClip;
+    }
 	
 	void Update()
 	{
@@ -32,7 +36,9 @@ public class PlayerController : MonoBehaviour {
 			nextFire = Time.time + fireRate;
 			GameObject clone = Instantiate(iceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
 			myGamemode.iceCreamTimer--;
-		}
+            MusicSource.Play();
+
+        }
 	}
 	
 	void FixedUpdate () {
