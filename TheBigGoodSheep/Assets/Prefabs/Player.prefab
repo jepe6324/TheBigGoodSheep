@@ -481,6 +481,9 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   MusicClip: {fileID: 8300000, guid: 1d05bc6735ce35248a5103d290ee5e41, type: 3}
   MusicSource: {fileID: 82940926463160116}
+  iceCubeValue: 5
+  sheepValue: 0
+  negativeSheepValue: 0
 --- !u!114 &114673044514291138
 MonoBehaviour:
   m_ObjectHideFlags: 1
