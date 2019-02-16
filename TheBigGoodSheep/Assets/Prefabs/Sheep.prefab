@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac1a8206e5919a48b322abdbc9db431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  satisfiedSprite: {fileID: 21300000, guid: c7239c037dd28874ea7341c3667756fb, type: 3}
+  satisfiedSprite: {fileID: 21300008, guid: 28833ee6a9c7acb439d67a98bc3f02a3, type: 3}
   MusicClip: {fileID: 8300000, guid: de9363e0cc12aba4383ef9645c846400, type: 3}
   MusicSource: {fileID: 82703769011135206}
 --- !u!114 &114655038132264866
@@ -384,7 +384,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a22fa4e55785cab4eb53d866070c3242, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 28833ee6a9c7acb439d67a98bc3f02a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
