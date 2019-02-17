@@ -18,12 +18,20 @@ public class PlayerController : MonoBehaviour {
 	public Transform iceCreamSpawn;
 	public float fireRate;
 
+	public Sprite redIceCream;
+	public Sprite yellowIceCream;
+	public Sprite blueIceCream;
+
+	private Sprite chosenIceCream;
 	private float nextFire;
+	private string color;
 	Rigidbody2D myRigidbody;
 	Gamemode myGamemode;
 
 	// Use this for initialization
 	void Start () {
+		chosenIceCream = yellowIceCream;
+		color = "Yellow";
 		myRigidbody = GetComponent<Rigidbody2D>();
 		myGamemode = GetComponent<Gamemode>();
         MusicSource.clip = MusicClip;
@@ -31,14 +39,38 @@ public class PlayerController : MonoBehaviour {
 	
 	void Update()
 	{
-		if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+		if (Input.GetButtonDown("Fire1") && Time.time > nextFire) // Shoting code
 		{
 			nextFire = Time.time + fireRate;
 			GameObject clone = Instantiate(iceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
+
+			clone.GetComponentInChildren<SpriteRenderer>().sprite = chosenIceCream;
+			clone.name = color;
+
 			myGamemode.iceCreamTimer--;
             MusicSource.Play();
+        } // Shooting Code
 
-        }
+		if (Input.GetKey(KeyCode.UpArrow)) // Color Picker Code
+		{
+
+			chosenIceCream = yellowIceCream;
+			color = "Yellow";
+		}
+
+		else if (Input.GetKey(KeyCode.RightArrow))
+		{
+
+			chosenIceCream = redIceCream;
+			color = "Red";
+		}
+
+		else if (Input.GetKey(KeyCode.LeftArrow))
+		{
+
+			chosenIceCream = blueIceCream;
+			color = "Blue";
+		} // Color Picker Code
 	}
 	
 	void FixedUpdate () {

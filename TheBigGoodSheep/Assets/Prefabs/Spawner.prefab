@@ -292,4 +292,11 @@ MonoBehaviour:
   - {fileID: 4764999211181586}
   - {fileID: 4487685500111006}
   - {fileID: 4357192838682946}
-  enemySheep: {fileID: 0}
+  enemySheepRed: {fileID: 1728446775433812, guid: 86ae2e41593368a41a9f0ef0adb35770,
+    type: 2}
+  enemySheepYellow: {fileID: 1242033389502402, guid: 75f8c66ca8ad0cd4eb12b2142f6427b9,
+    type: 2}
+  enemySheepBlue: {fileID: 1867208896127990, guid: 30d00c671df4ed6479064b5dd05407d5,
+    type: 2}
+  spawnFreqRangeLow: 0
+  spawnFreqRangeHigh: 0
