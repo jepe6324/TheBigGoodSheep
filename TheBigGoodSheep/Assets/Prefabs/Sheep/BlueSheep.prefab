@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 82857022924601916}
   - component: {fileID: 82703769011135206}
   m_Layer: 0
-  m_Name: Sheep
+  m_Name: BlueSheep
   m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34dbba62d38fb7547b2130874d703b93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2.2
+  speed: -3.2
 --- !u!212 &212958659409727294
 SpriteRenderer:
   m_ObjectHideFlags: 1

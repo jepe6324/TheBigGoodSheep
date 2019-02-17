@@ -23,7 +23,7 @@ public class Gamemode : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		frames++; // Every frame we increment the frame counter
 

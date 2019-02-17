@@ -33,15 +33,27 @@ public class EnemySatisfaction : MonoBehaviour {
 	{
 		if (other.tag == "IceCream")
 		{
-			mySpriteRenderer.sprite = satisfiedSprite;
-			satisfaction = true;
-			Destroy(myCollider);
-            MusicSource.Play();
-
-			if (myGamemode != null)
-				myGamemode.BroadcastMessage("SheepSatisfied");
-			else
-				Debug.Log("Cannot find the 'gameObject' script");
+			if (other.name == name)
+				Satisfied();
+			//if (other.name == "Red" && name == "RedSheep")
+			//	Satisfied();
+			//if (other.name == "Yellow" && name == "YellowSheep")
+			//	Satisfied();
+			//if (other.name == "Blue" && name == "BlueSheep")
+			//	Satisfied();
 		}
+	}
+
+	void Satisfied()
+	{
+		mySpriteRenderer.sprite = satisfiedSprite;
+		satisfaction = true;
+		Destroy(myCollider);
+		MusicSource.Play();
+
+		if (myGamemode != null)
+			myGamemode.BroadcastMessage("SheepSatisfied");
+		else
+			Debug.Log("Cannot find the 'gameObject' script");
 	}
 }
