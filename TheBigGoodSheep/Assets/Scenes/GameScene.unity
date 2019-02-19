@@ -735,6 +735,16 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 776230515}
+    - target: {fileID: 82697331435579334, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f2c15c146de7864095287a49cbebec5, type: 3}
+    - target: {fileID: 82697331435579334, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.673
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07615370f0d97224b81a36b8c3e3655e, type: 2}
   m_IsPrefabAsset: 0
