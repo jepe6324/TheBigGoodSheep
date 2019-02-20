@@ -275,6 +275,11 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -52.130005
       objectReference: {fileID: 0}
+    - target: {fileID: 223209551835540152, guid: 87494b5cffb1c3d4f82bb74272a5232b,
+        type: 2}
+      propertyPath: m_PlaneDistance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87494b5cffb1c3d4f82bb74272a5232b, type: 2}
   m_IsPrefabAsset: 0
@@ -651,8 +656,8 @@ MonoBehaviour:
   - {fileID: 147214296}
   - {fileID: 105859810}
   pickup: {fileID: 1318295840901008, guid: 430a285e20b0993438270db3988949d8, type: 2}
-  spawnFreqRangeLow: 5
-  spawnFreqRangeHigh: 6
+  spawnFreqRangeLow: 3
+  spawnFreqRangeHigh: 5
 --- !u!1 &1525269676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1493938554865578, guid: d11ac90392dd1074298c7501f26aa68b,
