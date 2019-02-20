@@ -137,7 +137,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.7}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -148,7 +148,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.27, y: 1}
+  m_Size: {x: 2.27, y: 2}
   m_EdgeRadius: 0
 --- !u!82 &82505894882061868
 AudioSource:
@@ -254,9 +254,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 7d0f779ab5a166d42aae134e8fa915e3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7f2c15c146de7864095287a49cbebec5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.223
+  m_Volume: 0.673
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -448,6 +448,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceCreamTimer: 20
   iceCubeValue: 5
+  rainbowTimer: 60
+  rainbowDuration: 5
   timerText: {fileID: 0}
   scoreText: {fileID: 0}
   MusicClip: {fileID: 8300000, guid: 1d05bc6735ce35248a5103d290ee5e41, type: 3}
@@ -465,6 +467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedX: 5
   speedY: 10
+  fireRate: 0
   boundary:
     xMin: -20
     xMax: 20
@@ -474,10 +477,10 @@ MonoBehaviour:
   MusicSource: {fileID: 82505894882061868}
   iceCream: {fileID: 1773728254646594, guid: b0f56d48b74ddfc4eb27d6705094db48, type: 2}
   iceCreamSpawn: {fileID: 4104877370172240}
-  fireRate: 0
   redIceCream: {fileID: 21300004, guid: a68dc70613093de4180358f5589c2fd9, type: 3}
   yellowIceCream: {fileID: 21300000, guid: a68dc70613093de4180358f5589c2fd9, type: 3}
   blueIceCream: {fileID: 21300002, guid: a68dc70613093de4180358f5589c2fd9, type: 3}
+  rainbowIceCream: {fileID: 21300000, guid: 2884997cb28f4f941860cf6e8ccf0567, type: 3}
 --- !u!212 &212698314600357928
 SpriteRenderer:
   m_ObjectHideFlags: 1

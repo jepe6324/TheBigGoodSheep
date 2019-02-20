@@ -8,13 +8,18 @@ public class Gamemode : MonoBehaviour {
 
 	public int iceCreamTimer;
 	public int iceCubeValue;
+
+	public int rainbowTimer;
+	public int rainbowDuration;
+
 	public Text timerText;
 	public Text scoreText;
 
     public AudioClip MusicClip;
     public AudioSource MusicSource;
 
-    private int frames;
+    private int iceCreamFrames;
+	private int rainbowFrames;
 	private int score;
 	// Use this for initialization
 	void Start () {
@@ -25,17 +30,29 @@ public class Gamemode : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		frames++; // Every frame we increment the frame counter
+		iceCreamFrames++; // Every frame we increment the frame counter
 
-		if (frames == 60) // When the frame counter reaches 60 a whole second has passed
+		if (rainbowTimer > 0)
+		{
+			rainbowFrames++;
+
+			if (rainbowFrames == 60)
+			{
+				rainbowTimer--;
+				rainbowFrames = 0;
+			}
+		}
+		else if (iceCreamFrames == 60) // When the frame counter reaches 60 a whole second has passed
 		{
 			iceCreamTimer--;	// Remove one second from the icecream timer
-			frames = 0;			// Reset the frame counter to 0 again so that we can start counting on the second
+			iceCreamFrames = 0;			// Reset the frame counter to 0 again so that we can start counting on the second
 			if (iceCreamTimer <= 0)
 			{
 				SceneManager.LoadScene("GameOver"); // If the icecream timer reaches 0 we lose
 			}
 		}
+
+		
 
 		timerText.text = "" + iceCreamTimer;
 		scoreText.text = "" + score;
@@ -48,7 +65,14 @@ public class Gamemode : MonoBehaviour {
 			Destroy(other.gameObject);
             MusicSource.Play();
             iceCreamTimer += iceCubeValue;
-			frames = 0;
+			iceCreamFrames = 0;
+			return;
+		}
+		else if (other.tag == "Rainbow")
+		{
+			Destroy(other.gameObject);
+			rainbowTimer += rainbowDuration;
+			rainbowFrames = 0;
 			return;
 		}
 		else

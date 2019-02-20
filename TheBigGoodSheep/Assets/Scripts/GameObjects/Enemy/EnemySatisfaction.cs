@@ -33,8 +33,12 @@ public class EnemySatisfaction : MonoBehaviour {
 	{
 		if (other.tag == "IceCream")
 		{
-			if (other.name == name)
-				Satisfied();
+			if (other.name == "Rainbow")
+			{
+				Satisfied(true);
+			}
+			else if (other.name == name)
+				Satisfied(false);
 			//if (other.name == "Red" && name == "RedSheep")
 			//	Satisfied();
 			//if (other.name == "Yellow" && name == "YellowSheep")
@@ -44,7 +48,7 @@ public class EnemySatisfaction : MonoBehaviour {
 		}
 	}
 
-	void Satisfied()
+	void Satisfied(bool rainbow) // added this rainbow bool incase i want to give a special satisfied sprite to sheep that ate rainbow icecream
 	{
 		mySpriteRenderer.sprite = satisfiedSprite;
 		satisfaction = true;

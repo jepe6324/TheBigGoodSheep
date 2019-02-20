@@ -9,6 +9,8 @@ public class Boundary
 public class PlayerController : MonoBehaviour {
 	public float speedX;
 	public float speedY;
+	public float fireRate;
+
 	public Boundary boundary;
 
     public AudioClip MusicClip;
@@ -16,11 +18,11 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject iceCream;
 	public Transform iceCreamSpawn;
-	public float fireRate;
 
 	public Sprite redIceCream;
 	public Sprite yellowIceCream;
 	public Sprite blueIceCream;
+	public Sprite rainbowIceCream;
 
 	private Sprite chosenIceCream;
 	private float nextFire;
@@ -41,15 +43,28 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (Input.GetButtonDown("Fire1") && Time.time > nextFire) // Shoting code
 		{
-			nextFire = Time.time + fireRate;
-			GameObject clone = Instantiate(iceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
+			if (myGamemode.rainbowTimer > 0)
+			{
+				nextFire = Time.time + fireRate;
+				GameObject clone = Instantiate(iceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
 
-			clone.GetComponentInChildren<SpriteRenderer>().sprite = chosenIceCream;
-			clone.name = color;
+				clone.GetComponentInChildren<SpriteRenderer>().sprite = rainbowIceCream;
+				clone.name = "Rainbow";
+				
+				MusicSource.Play();
+			}
+			else
+			{
+				nextFire = Time.time + fireRate;
+				GameObject clone = Instantiate(iceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
 
-			myGamemode.iceCreamTimer--;
-            MusicSource.Play();
-        } // Shooting Code
+				clone.GetComponentInChildren<SpriteRenderer>().sprite = chosenIceCream;
+				clone.name = color;
+
+				myGamemode.iceCreamTimer--;
+				MusicSource.Play();
+			}
+		} // Shooting Code
 
 		if (Input.GetKey(KeyCode.UpArrow)) // Color Picker Code
 		{
