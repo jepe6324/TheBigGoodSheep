@@ -9,6 +9,7 @@ TagManager:
   - IceCream
   - Yellow Sheep
   - Rainbow
+  - Obstacle
   layers:
   - Default
   - TransparentFX

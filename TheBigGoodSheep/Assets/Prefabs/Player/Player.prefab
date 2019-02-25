@@ -450,6 +450,7 @@ MonoBehaviour:
   iceCubeValue: 5
   rainbowTimer: 60
   rainbowDuration: 5
+  obstaclePenalty: 5
   timerText: {fileID: 0}
   scoreText: {fileID: 0}
   MusicClip: {fileID: 8300000, guid: 1d05bc6735ce35248a5103d290ee5e41, type: 3}

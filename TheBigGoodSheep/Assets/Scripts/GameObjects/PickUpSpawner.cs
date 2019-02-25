@@ -7,6 +7,7 @@ public class PickUpSpawner : MonoBehaviour {
 	public Transform[] spawnPoints;
 	public GameObject iceCube;
 	public GameObject rainbowPickup;
+	public GameObject obstacle;
 
 	public float spawnFreqRangeLow;
 	public float spawnFreqRangeHigh;
@@ -23,13 +24,15 @@ public class PickUpSpawner : MonoBehaviour {
 	{
 
 		yield return new WaitForSeconds(Random.Range(spawnFreqRangeLow, spawnFreqRangeLow));
-		Instantiate(iceCube, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+		if (count % 11 == 0)
+			Instantiate(obstacle, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+		else if (count % 10 == 0)
+			Instantiate(rainbowPickup, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+		else
+			Instantiate(iceCube, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
 
 		count++;
-
-		if (count % 10 == 0)
-			Instantiate(rainbowPickup, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
-
+		
 		StartCoroutine(StartSpawning());
 	}
 }

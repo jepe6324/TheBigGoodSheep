@@ -12,6 +12,8 @@ public class Gamemode : MonoBehaviour {
 	public int rainbowTimer;
 	public int rainbowDuration;
 
+	public int obstaclePenalty;
+
 	public Text timerText;
 	public Text scoreText;
 
@@ -20,10 +22,9 @@ public class Gamemode : MonoBehaviour {
 
     private int iceCreamFrames;
 	private int rainbowFrames;
-	private int score;
 	// Use this for initialization
 	void Start () {
-		score = 0;
+		ApplicationModel.score = 0;
         MusicSource.clip = MusicClip;
     }
 	
@@ -55,7 +56,7 @@ public class Gamemode : MonoBehaviour {
 		
 
 		timerText.text = "" + iceCreamTimer;
-		scoreText.text = "" + score;
+		scoreText.text = "" + ApplicationModel.score;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -66,28 +67,33 @@ public class Gamemode : MonoBehaviour {
             MusicSource.Play();
             iceCreamTimer += iceCubeValue;
 			iceCreamFrames = 0;
-			return;
 		}
 		else if (other.tag == "Rainbow")
 		{
 			Destroy(other.gameObject);
 			rainbowTimer += rainbowDuration;
 			rainbowFrames = 0;
-			return;
 		}
-		else
+		else if (other.tag == "Obstacle")
 		{
-			return;
+			Destroy(other.gameObject);
+			iceCreamTimer -= obstaclePenalty;
+			iceCreamFrames = 0;
 		}
 	}
 
 	void SheepSatisfied() // This should be called when a sheep is fed with the right color
 	{
-		score += 100;
+		ApplicationModel.score += 100;
 	}
 
 	void SheepUnsatisfied() // This should be called when a sheep is fed with the wrong color, or not at all.
 	{
-		score -= 50;
+		ApplicationModel.score -= 50;
 	}
+}
+
+public class ApplicationModel
+{
+	static public int score = 0;    // this is reachable from everywhere
 }
