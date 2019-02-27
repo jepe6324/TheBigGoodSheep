@@ -19,11 +19,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4810028857775708}
+  - component: {fileID: 50570582922374142}
   - component: {fileID: 61475912424312988}
   - component: {fileID: 114908178656508190}
   - component: {fileID: 114703674993120364}
   - component: {fileID: 114876125513213100}
-  - component: {fileID: 50570582922374142}
   - component: {fileID: 82410215590817282}
   - component: {fileID: 82220433623872988}
   m_Layer: 0
@@ -83,7 +83,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1242033389502402}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
