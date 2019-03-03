@@ -348,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a05a1bafbc7894ebe2ed238b798032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xDeathPos: -9
+  xDeathPos: -12
 --- !u!212 &212490056397075536
 SpriteRenderer:
   m_ObjectHideFlags: 1

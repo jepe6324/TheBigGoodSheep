@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114894378319790862}
   - component: {fileID: 114682407366443264}
   m_Layer: 0
-  m_Name: BackgroundSprite
+  m_Name: BackgroundPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

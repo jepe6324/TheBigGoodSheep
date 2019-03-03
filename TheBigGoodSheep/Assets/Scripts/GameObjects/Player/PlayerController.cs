@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour {
 
 	public Boundary boundary;
 
-    public AudioClip MusicClip;
-    public AudioSource MusicSource;
+	public AudioClip MusicClip;
+	public AudioSource MusicSource;
 
 	public GameObject iceCream;
 	public Transform iceCreamSpawn;
@@ -24,21 +24,27 @@ public class PlayerController : MonoBehaviour {
 	public Sprite blueIceCream;
 	public Sprite rainbowIceCream;
 
+	public SpriteRenderer colorRotatorRenderer;
+	public Sprite colorRotatorYellow;
+	public Sprite colorRotatorRed;
+	public Sprite colorRotatorBlue;
+
 	private Sprite chosenIceCream;
-	private float nextFire;
 	private string color;
+	private int rotationInt = 1; // I use modulo to determine what colour to set the icecream to
+	private float nextFire;
 	Rigidbody2D myRigidbody;
 	Gamemode myGamemode;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
 		chosenIceCream = yellowIceCream;
 		color = "Yellow";
 		myRigidbody = GetComponent<Rigidbody2D>();
 		myGamemode = GetComponent<Gamemode>();
-        MusicSource.clip = MusicClip;
-    }
-	
+		MusicSource.clip = MusicClip;
+	}
+
 	void Update()
 	{
 		if (Input.GetButtonDown("Fire1") && Time.time > nextFire) // Shoting code
@@ -50,7 +56,7 @@ public class PlayerController : MonoBehaviour {
 
 				clone.GetComponentInChildren<SpriteRenderer>().sprite = rainbowIceCream;
 				clone.name = "Rainbow";
-				
+
 				MusicSource.Play();
 			}
 			else
@@ -66,29 +72,14 @@ public class PlayerController : MonoBehaviour {
 			}
 		} // Shooting Code
 
-		if (Input.GetKey(KeyCode.UpArrow)) // Color Picker Code
-		{
 
-			chosenIceCream = yellowIceCream;
-			color = "Yellow";
+		if (Input.GetButtonDown("Rotate"))
+		{
+			RotateColor();
 		}
-
-		else if (Input.GetKey(KeyCode.RightArrow))
-		{
-
-			chosenIceCream = redIceCream;
-			color = "Red";
-		}
-
-		else if (Input.GetKey(KeyCode.LeftArrow))
-		{
-
-			chosenIceCream = blueIceCream;
-			color = "Blue";
-		} // Color Picker Code
 	}
-	
-	void FixedUpdate () {
+
+	void FixedUpdate() {
 		float moveHorizontal = Input.GetAxis("Horizontal");
 		float moveVertical = Input.GetAxis("Vertical");
 		Vector2 movement = new Vector2(moveHorizontal, moveVertical);
@@ -106,5 +97,48 @@ public class PlayerController : MonoBehaviour {
 		myRigidbody.position = new Vector2(
 			Mathf.Clamp(myRigidbody.position.x, boundary.xMin, boundary.xMax),
 			Mathf.Clamp(myRigidbody.position.y, boundary.yMin, boundary.yMax));
+	}
+
+	void RotateColor()
+	{
+		if (Input.GetAxis("Rotate") < 0)
+		{
+			rotationInt = loopInt(rotationInt + 1, 1, 3);
+		}
+		else
+		{
+			rotationInt = loopInt(rotationInt - 1, 1, 3);
+		}
+		
+		switch (rotationInt)
+		{
+			case 1:
+				color = "Yellow";
+				chosenIceCream = yellowIceCream;
+				colorRotatorRenderer.sprite = colorRotatorYellow;
+				break;
+			case 2:
+				color = "Red";
+				chosenIceCream = redIceCream;
+				colorRotatorRenderer.sprite = colorRotatorRed;
+				break;
+			case 3:
+				color = "Blue";
+				chosenIceCream = blueIceCream;
+				colorRotatorRenderer.sprite = colorRotatorBlue;
+				break;
+			default:
+				break;
+		}
+	}
+
+
+	int loopInt(int value, int min, int max)
+	{
+		if (value > max)
+			return min;
+		if (value < min)
+			return max;
+		return value;
 	}
 }
