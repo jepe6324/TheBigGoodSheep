@@ -285,6 +285,12 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212999632311062948, guid: 87494b5cffb1c3d4f82bb74272a5232b,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fd7ffa070e2be024d87638891001846a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87494b5cffb1c3d4f82bb74272a5232b, type: 2}
   m_IsPrefabAsset: 0
@@ -784,6 +790,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114673044514291138, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 2}
+      propertyPath: colorRotatorRenderer
+      value: 
+      objectReference: {fileID: 2030774082}
     - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
         type: 2}
       propertyPath: timerText
@@ -794,68 +805,6 @@ Prefab:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 776230515}
-    - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: rainbowTimer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: iceCreamTimer
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: iceCreamTimerMax
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114673044514291138, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: colorRotatorYellow
-      value: 
-      objectReference: {fileID: 21300000, guid: bc352037dec0cd0428577f4f5fdb7be3,
-        type: 3}
-    - target: {fileID: 114673044514291138, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: colorRotatorRed
-      value: 
-      objectReference: {fileID: 21300002, guid: bc352037dec0cd0428577f4f5fdb7be3,
-        type: 3}
-    - target: {fileID: 114673044514291138, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: colorRotatorBlue
-      value: 
-      objectReference: {fileID: 21300004, guid: bc352037dec0cd0428577f4f5fdb7be3,
-        type: 3}
-    - target: {fileID: 114673044514291138, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: colorRotatorRenderer
-      value: 
-      objectReference: {fileID: 2030774082}
-    - target: {fileID: 114673044514291138, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: playerSpriteBlue
-      value: 
-      objectReference: {fileID: 21300000, guid: 44a5642675409a0468b737918238cc79,
-        type: 3}
-    - target: {fileID: 114673044514291138, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: playerSpriteRed
-      value: 
-      objectReference: {fileID: 21300002, guid: 44a5642675409a0468b737918238cc79,
-        type: 3}
-    - target: {fileID: 114673044514291138, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: playerSpriteYellow
-      value: 
-      objectReference: {fileID: 21300004, guid: 44a5642675409a0468b737918238cc79,
-        type: 3}
-    - target: {fileID: 212698314600357928, guid: 07615370f0d97224b81a36b8c3e3655e,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300004, guid: 44a5642675409a0468b737918238cc79,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07615370f0d97224b81a36b8c3e3655e, type: 2}
   m_IsPrefabAsset: 0
