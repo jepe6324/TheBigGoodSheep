@@ -8,6 +8,7 @@ public class Gamemode : MonoBehaviour {
 
 	public int iceCreamTimer;
 	public int iceCubeValue;
+	public int iceCreamTimerMax;
 
 	public int rainbowTimer;
 	public int rainbowDuration;
@@ -25,6 +26,7 @@ public class Gamemode : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ApplicationModel.score = 0;
+		ApplicationModel.highScoreBroken = false;
         MusicSource.clip = MusicClip;
     }
 	
@@ -45,7 +47,7 @@ public class Gamemode : MonoBehaviour {
 		}
 		else if (iceCreamFrames == 60) // When the frame counter reaches 60 a whole second has passed
 		{
-			iceCreamTimer--;	// Remove one second from the icecream timer
+			iceCreamTimer = clampIceCreamTimer(iceCreamTimer - 1);  // Remove one second from the icecream timer
 			iceCreamFrames = 0;			// Reset the frame counter to 0 again so that we can start counting on the second
 			if (iceCreamTimer <= 0)
 			{
@@ -57,6 +59,12 @@ public class Gamemode : MonoBehaviour {
 
 		timerText.text = "" + iceCreamTimer;
 		scoreText.text = "" + ApplicationModel.score;
+
+		if (ApplicationModel.score > ApplicationModel.highScore)
+		{
+			ApplicationModel.highScore = ApplicationModel.score;
+			ApplicationModel.highScoreBroken = true;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -65,7 +73,7 @@ public class Gamemode : MonoBehaviour {
 		{ // If it is do the things that it should do when getting into contact with an IceCube
 			Destroy(other.gameObject);
             MusicSource.Play();
-            iceCreamTimer += iceCubeValue;
+            iceCreamTimer = clampIceCreamTimer(iceCreamTimer + iceCubeValue);
 			iceCreamFrames = 0;
 		}
 		else if (other.tag == "Rainbow")
@@ -91,9 +99,14 @@ public class Gamemode : MonoBehaviour {
 	{
 		ApplicationModel.score -= 50;
 	}
-}
 
-public class ApplicationModel
-{
-	static public int score = 0;    // this is reachable from everywhere
+	int clampIceCreamTimer(int value)
+	{
+		if (value > iceCreamTimerMax)
+			return iceCreamTimerMax;
+		else if (value < 0)
+			return 0;
+		else
+			return value;
+	}
 }
