@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour {
 	public Sprite colorRotatorRed;
 	public Sprite colorRotatorBlue;
 
+	public Sprite playerSpriteYellow;
+	public Sprite playerSpriteRed;
+	public Sprite playerSpriteBlue;
+
+	private SpriteRenderer mySpriteRenderer;
 	private Sprite chosenIceCream;
 	private string color;
 	private int rotationInt = 1; // I use modulo to determine what colour to set the icecream to
@@ -41,8 +46,11 @@ public class PlayerController : MonoBehaviour {
 		chosenIceCream = yellowIceCream;
 		color = "Yellow";
 		myRigidbody = GetComponent<Rigidbody2D>();
+		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		myGamemode = GetComponent<Gamemode>();
 		MusicSource.clip = MusicClip;
+
+		mySpriteRenderer.sprite = playerSpriteYellow;
 	}
 
 	void Update()
@@ -116,16 +124,19 @@ public class PlayerController : MonoBehaviour {
 				color = "Yellow";
 				chosenIceCream = yellowIceCream;
 				colorRotatorRenderer.sprite = colorRotatorYellow;
+				mySpriteRenderer.sprite = playerSpriteYellow;
 				break;
 			case 2:
 				color = "Red";
 				chosenIceCream = redIceCream;
 				colorRotatorRenderer.sprite = colorRotatorRed;
+				mySpriteRenderer.sprite = playerSpriteRed;
 				break;
 			case 3:
 				color = "Blue";
 				chosenIceCream = blueIceCream;
 				colorRotatorRenderer.sprite = colorRotatorBlue;
+				mySpriteRenderer.sprite = playerSpriteBlue;
 				break;
 			default:
 				break;
