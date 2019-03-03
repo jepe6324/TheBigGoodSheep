@@ -448,6 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iceCreamTimer: 20
   iceCubeValue: 5
+  iceCreamTimerMax: 0
   rainbowTimer: 60
   rainbowDuration: 5
   obstaclePenalty: 5
@@ -482,6 +483,10 @@ MonoBehaviour:
   yellowIceCream: {fileID: 21300000, guid: a68dc70613093de4180358f5589c2fd9, type: 3}
   blueIceCream: {fileID: 21300002, guid: a68dc70613093de4180358f5589c2fd9, type: 3}
   rainbowIceCream: {fileID: 21300000, guid: 2884997cb28f4f941860cf6e8ccf0567, type: 3}
+  colorRotatorRenderer: {fileID: 0}
+  colorRotatorYellow: {fileID: 0}
+  colorRotatorRed: {fileID: 0}
+  colorRotatorBlue: {fileID: 0}
 --- !u!212 &212698314600357928
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -517,7 +522,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f9562b5d1657484b88448f88e854ded, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 44a5642675409a0468b737918238cc79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
