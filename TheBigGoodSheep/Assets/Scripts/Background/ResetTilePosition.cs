@@ -23,8 +23,6 @@ public class ResetTilePosition : MonoBehaviour
 		}
 
 		resetPos = transform.position;
-
-		Debug.Log(resetPos);
 	}
 
 	// Update is called once per frame

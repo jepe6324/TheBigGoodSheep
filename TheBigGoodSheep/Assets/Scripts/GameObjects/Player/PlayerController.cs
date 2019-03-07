@@ -96,12 +96,6 @@ public class PlayerController : MonoBehaviour {
 		movement.y *= speedY;
 		myRigidbody.velocity = movement;
 
-
-		//if (moveHorizontal != 0)
-		//	Debug.Log(movement.x * speedX);
-		//if (moveVertical != 0)
-		//	Debug.Log(movement.y * speedY);
-
 		myRigidbody.position = new Vector2(
 			Mathf.Clamp(myRigidbody.position.x, boundary.xMin, boundary.xMax),
 			Mathf.Clamp(myRigidbody.position.y, boundary.yMin, boundary.yMax));
