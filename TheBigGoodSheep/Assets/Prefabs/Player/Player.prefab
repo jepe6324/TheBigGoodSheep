@@ -471,8 +471,8 @@ MonoBehaviour:
   speedY: 10
   fireRate: 0
   boundary:
-    xMin: -20
-    xMax: 20
+    xMin: -10
+    xMax: 10
     yMin: -2.5
     yMax: 3
   MusicClip: {fileID: 8300000, guid: 2ab9ebd7eb8734d41b3fbb1629cd6d5a, type: 3}
