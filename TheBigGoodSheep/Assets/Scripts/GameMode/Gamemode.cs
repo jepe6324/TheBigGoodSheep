@@ -6,14 +6,28 @@ using UnityEngine.UI;
 
 public class Gamemode : MonoBehaviour {
 
-	public int iceCreamTimer;
-	public int iceCubeValue;
-	public int iceCreamTimerMax;
+	public float iceCreamTimer;
+	public float iceCubeValue;
+	//{
+	//	get
+	//	{
+	//		return iceCubeValue;
+	//	}
+	//	set
+	//	{
+	//		IceCubeValue = iceCubeValue;
+ //           fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
+ //       }
+ //   }
+    public float iceCreamTimerMax;
 
-	public int rainbowTimer;
+    private float fillAmount;
+    public Image content;
+
+	public float rainbowTimer;
 	public int rainbowDuration;
 
-	public int obstaclePenalty;
+	public float obstaclePenalty;
 
 	public Text timerText;
 	public Text scoreText;
@@ -21,8 +35,8 @@ public class Gamemode : MonoBehaviour {
     public AudioClip MusicClip;
     public AudioSource MusicSource;
 
-    private int iceCreamFrames;
-	private int rainbowFrames;
+    private float iceCreamFrames;
+	private float rainbowFrames;
 	// Use this for initialization
 	void Start () {
 		ApplicationModel.score = 0;
@@ -33,7 +47,9 @@ public class Gamemode : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		iceCreamFrames++; // Every frame we increment the frame counter
+        HandleBar();
+
+        iceCreamFrames++; // Every frame we increment the frame counter
 
 		if (rainbowTimer > 0)
 		{
@@ -47,15 +63,15 @@ public class Gamemode : MonoBehaviour {
 		}
 		else if (iceCreamFrames == 60) // When the frame counter reaches 60 a whole second has passed
 		{
-			iceCreamTimer = clampIceCreamTimer(iceCreamTimer - 1);  // Remove one second from the icecream timer
-			iceCreamFrames = 0;			// Reset the frame counter to 0 again so that we can start counting on the second
+			iceCreamTimer = clampIceCreamTimer( iceCreamTimer - 1);  // Remove one second from the icecream timer
+			iceCreamFrames = 0;         // Reset the frame counter to 0 again so that we can start counting on the second
 			if (iceCreamTimer <= 0)
 			{
 				SceneManager.LoadScene("GameOver"); // If the icecream timer reaches 0 we lose
 			}
 		}
 
-		
+		fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
 
 		timerText.text = "" + iceCreamTimer;
 		scoreText.text = "" + ApplicationModel.score;
@@ -67,7 +83,17 @@ public class Gamemode : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+    private void HandleBar()
+    {
+        content.fillAmount = fillAmount;
+    }
+
+    private float Map(float value, float inMin, float inMax, float outMin, float outMax)
+    {
+        return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "IceCube") // Checks the other objects tag to see if it is a "IceCube"
 		{ // If it is do the things that it should do when getting into contact with an IceCube
@@ -100,7 +126,7 @@ public class Gamemode : MonoBehaviour {
 		ApplicationModel.score -= 50;
 	}
 
-	int clampIceCreamTimer(int value)
+	float clampIceCreamTimer(float value)
 	{
 		if (value > iceCreamTimerMax)
 			return iceCreamTimerMax;
