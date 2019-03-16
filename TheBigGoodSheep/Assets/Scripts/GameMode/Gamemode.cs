@@ -7,20 +7,21 @@ using UnityEngine.UI;
 public class Gamemode : MonoBehaviour {
 
 	public float iceCreamTimer;
-    public float iceCubeValue
-    {
-        set
-        {
-            fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
-        }
-        get
-        {
-            return iceCubeValue;
-        }
-    }
+	public float iceCubeValue;
+	//{
+	//	get
+	//	{
+	//		return iceCubeValue;
+	//	}
+	//	set
+	//	{
+	//		IceCubeValue = iceCubeValue;
+ //           fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
+ //       }
+ //   }
     public float iceCreamTimerMax;
 
-    public float fillAmount;
+    private float fillAmount;
     public Image content;
 
 	public float rainbowTimer;
@@ -63,14 +64,14 @@ public class Gamemode : MonoBehaviour {
 		else if (iceCreamFrames == 60) // When the frame counter reaches 60 a whole second has passed
 		{
 			iceCreamTimer = clampIceCreamTimer( iceCreamTimer - 1);  // Remove one second from the icecream timer
-			iceCreamFrames = 0;			// Reset the frame counter to 0 again so that we can start counting on the second
+			iceCreamFrames = 0;         // Reset the frame counter to 0 again so that we can start counting on the second
 			if (iceCreamTimer <= 0)
 			{
 				SceneManager.LoadScene("GameOver"); // If the icecream timer reaches 0 we lose
 			}
 		}
 
-		
+		fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
 
 		timerText.text = "" + iceCreamTimer;
 		scoreText.text = "" + ApplicationModel.score;
@@ -87,10 +88,9 @@ public class Gamemode : MonoBehaviour {
         content.fillAmount = fillAmount;
     }
 
-    private float Map(float iceCreamTimer, float iceCreamTimerMin, float iceCreamTimerMax, float outMin, float outMax)
+    private float Map(float value, float inMin, float inMax, float outMin, float outMax)
     {
-        iceCreamTimerMin = 0;
-        return (iceCreamTimer - iceCreamTimerMin) * (outMax - outMin) / (iceCreamTimerMax - iceCreamTimerMin);
+        return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     }
 
     void OnTriggerEnter2D(Collider2D other)

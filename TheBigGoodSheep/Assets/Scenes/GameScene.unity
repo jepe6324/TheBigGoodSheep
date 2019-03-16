@@ -153,7 +153,6 @@ GameObject:
   - component: {fileID: 363947199}
   - component: {fileID: 363947201}
   - component: {fileID: 363947200}
-  - component: {fileID: 363947202}
   m_Layer: 5
   m_Name: BAR
   m_TagString: Untagged
@@ -178,7 +177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -167.49, y: -79}
+  m_AnchoredPosition: {x: -167.48999, y: -79}
   m_SizeDelta: {x: 262.58, y: 31.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &363947200
@@ -218,29 +217,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363947198}
   m_CullTransparentMesh: 0
---- !u!114 &363947202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363947198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85652751c02d2664d8abf687b6a4fd0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iceCreamTimer: 0
-  iceCreamTimerMax: 0
-  fillAmount: 0
-  content: {fileID: 930088219}
-  rainbowTimer: 0
-  rainbowDuration: 0
-  obstaclePenalty: 0
-  timerText: {fileID: 0}
-  scoreText: {fileID: 0}
-  MusicClip: {fileID: 0}
-  MusicSource: {fileID: 0}
 --- !u!1001 &443075705
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -759,7 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24249582, g: 1, b: 0.11792451, a: 1}
+  m_Color: {r: 0.11764705, g: 1, b: 0.9909863, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1269,6 +1245,21 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 776230515}
+    - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 3}
+      propertyPath: content
+      value: 
+      objectReference: {fileID: 930088219}
+    - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 3}
+      propertyPath: iceCubeValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 3}
+      propertyPath: fillAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07615370f0d97224b81a36b8c3e3655e, type: 3}
 --- !u!114 &1721169297 stripped
@@ -1360,7 +1351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8396226, g: 0.29492423, b: 0.13861692, a: 1}
+  m_Color: {r: 0.8301887, g: 0.2731564, b: 0.08223567, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
