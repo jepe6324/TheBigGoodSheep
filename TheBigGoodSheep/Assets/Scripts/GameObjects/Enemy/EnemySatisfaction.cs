@@ -5,10 +5,14 @@ using UnityEngine;
 public class EnemySatisfaction : MonoBehaviour {
 
 	public Sprite satisfiedSprite;
-    public AudioClip MusicClip;
-    public AudioSource MusicSource;
+    public AudioClip MusicClipKum;
+    public AudioSource MusicSourceKum;
+    public AudioClip MusicClipShot;
+    public AudioSource MusicSourceShot;
+    public AudioClip MusicClipNotHot;
+    public AudioSource MusicSourceNotHot;
 
-	private SpriteRenderer mySpriteRenderer;
+    private SpriteRenderer mySpriteRenderer;
 	private BoxCollider2D myCollider;
 	private Gamemode myGamemode;
 	private bool fed;
@@ -17,8 +21,10 @@ public class EnemySatisfaction : MonoBehaviour {
 	void Start () {
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		myCollider = GetComponentInChildren<BoxCollider2D>();
-        MusicSource.clip = MusicClip;
-		fed = false;
+        MusicSourceKum.clip = MusicClipKum;
+        MusicSourceShot.clip = MusicClipShot;
+        MusicSourceNotHot.clip = MusicClipNotHot;
+        fed = false;
 
 		GameObject player = GameObject.FindWithTag("Player");
 
@@ -40,20 +46,22 @@ public class EnemySatisfaction : MonoBehaviour {
 				Satisfied(false);
 			else
 				NotSatisfied();
-			//if (other.name == "Red" && name == "RedSheep")
-			//	Satisfied();
-			//if (other.name == "Yellow" && name == "YellowSheep")
-			//	Satisfied();
-			//if (other.name == "Blue" && name == "BlueSheep")
-			//	Satisfied();
-		}
+            MusicSourceNotHot.Play();
+            //if (other.name == "Red" && name == "RedSheep")
+            //	Satisfied();
+            //if (other.name == "Yellow" && name == "YellowSheep")
+            //	Satisfied();
+            //if (other.name == "Blue" && name == "BlueSheep")
+            //	Satisfied();
+        }
 	}
 
 	void Satisfied(bool rainbow) // added this rainbow bool incase i want to give a special satisfied sprite to sheep that ate rainbow icecream
 	{
 		mySpriteRenderer.sprite = satisfiedSprite;
 		Destroy(myCollider);
-		MusicSource.Play();
+        MusicSourceShot.Play();
+        MusicSourceKum.Play();
 		fed = true;
 
 		if (myGamemode != null)

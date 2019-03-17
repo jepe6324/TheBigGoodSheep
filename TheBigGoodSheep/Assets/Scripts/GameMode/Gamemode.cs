@@ -32,8 +32,12 @@ public class Gamemode : MonoBehaviour {
 	public Text timerText;
 	public Text scoreText;
 
-    public AudioClip MusicClip;
-    public AudioSource MusicSource;
+    public AudioClip MusicClipIce;
+    public AudioSource MusicSourceIce;
+    public AudioClip MusicClipObstacle;
+    public AudioSource MusicSourceObstacle;
+    public AudioClip MusicClipRainbow;
+    public AudioSource MusicSourceRainbow;
 
     private float iceCreamFrames;
 	private float rainbowFrames;
@@ -41,7 +45,9 @@ public class Gamemode : MonoBehaviour {
 	void Start () {
 		ScoreVariables.score = 0;
 		ScoreVariables.highScoreBroken = false;
-        MusicSource.clip = MusicClip;
+        MusicSourceIce.clip = MusicClipIce;
+        MusicSourceObstacle.clip = MusicClipObstacle;
+        MusicSourceRainbow.clip = MusicClipRainbow;
     }
 	
 	// Update is called once per frame
@@ -98,7 +104,7 @@ public class Gamemode : MonoBehaviour {
 		if (other.tag == "IceCube") // Checks the other objects tag to see if it is a "IceCube"
 		{ // If it is do the things that it should do when getting into contact with an IceCube
 			Destroy(other.gameObject);
-            MusicSource.Play();
+            MusicSourceIce.Play();
             iceCreamTimer = clampIceCreamTimer(iceCreamTimer + iceCubeValue);
 			iceCreamFrames = 0;
 		}
@@ -107,13 +113,15 @@ public class Gamemode : MonoBehaviour {
 			Destroy(other.gameObject);
 			rainbowTimer += rainbowDuration;
 			rainbowFrames = 0;
+            MusicSourceRainbow.Play();
 		}
 		else if (other.tag == "Obstacle")
 		{
 			Destroy(other.gameObject);
 			iceCreamTimer -= obstaclePenalty;
 			iceCreamFrames = 0;
-		}
+            MusicSourceObstacle.Play();
+        }
 	}
 
 	void SheepSatisfied() // This should be called when a sheep is fed with the right color
