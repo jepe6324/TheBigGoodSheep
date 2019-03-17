@@ -39,8 +39,8 @@ public class Gamemode : MonoBehaviour {
 	private float rainbowFrames;
 	// Use this for initialization
 	void Start () {
-		ApplicationModel.score = 0;
-		ApplicationModel.highScoreBroken = false;
+		ScoreVariables.score = 0;
+		ScoreVariables.highScoreBroken = false;
         MusicSource.clip = MusicClip;
     }
 	
@@ -74,12 +74,12 @@ public class Gamemode : MonoBehaviour {
 		fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
 
 		timerText.text = "" + iceCreamTimer;
-		scoreText.text = "" + ApplicationModel.score;
+		scoreText.text = "" + ScoreVariables.score;
 
-		if (ApplicationModel.score > ApplicationModel.highScore)
+		if (ScoreVariables.score > ScoreVariables.highScore)
 		{
-			ApplicationModel.highScore = ApplicationModel.score;
-			ApplicationModel.highScoreBroken = true;
+			ScoreVariables.highScore = ScoreVariables.score;
+			ScoreVariables.highScoreBroken = true;
 		}
 	}
 
@@ -118,12 +118,12 @@ public class Gamemode : MonoBehaviour {
 
 	void SheepSatisfied() // This should be called when a sheep is fed with the right color
 	{
-		ApplicationModel.score += 100;
+		ScoreVariables.score += 100;
 	}
 
 	void SheepUnsatisfied() // This should be called when a sheep is fed with the wrong color, or not at all.
 	{
-		ApplicationModel.score -= 50;
+		ScoreVariables.score -= 50;
 	}
 
 	float clampIceCreamTimer(float value)

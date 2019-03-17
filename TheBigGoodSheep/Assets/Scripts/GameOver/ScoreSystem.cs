@@ -9,12 +9,12 @@ public class ScoreSystem : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		score.text = "Score: " + ApplicationModel.score;
+		score.text = "Score: " + ScoreVariables.score;
 		
-		if (ApplicationModel.highScoreBroken == true)
+		if (ScoreVariables.highScoreBroken == true)
 		{
 			// Highscore broken code
-			PlayerPrefs.SetInt("highScore", ApplicationModel.highScore);
+			PlayerPrefs.SetInt("highScore", ScoreVariables.highScore);
 		}
 
 		highScore.text = "Hi-Score: " + PlayerPrefs.GetInt("highScore", 0);
@@ -27,13 +27,13 @@ public class ScoreSystem : MonoBehaviour {
 
 	public void resetHighScore() // Use this to reset the high score. Should not be available to Jerry.
 	{
-		ApplicationModel.highScore = 0;
+		ScoreVariables.highScore = 0;
 		PlayerPrefs.SetInt("highScore", 0);
 	}
 }
 
 
-public class ApplicationModel
+public class ScoreVariables
 {
 	static public int score = 0;
 	static public int highScore = PlayerPrefs.GetInt("highScore");    // this is reachable from everywhere
