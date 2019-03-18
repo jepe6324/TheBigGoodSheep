@@ -9,8 +9,8 @@ public class EnemySatisfaction : MonoBehaviour {
     public AudioSource MusicSourceKum;
     public AudioClip MusicClipShot;
     public AudioSource MusicSourceShot;
-    public AudioClip MusicClipNotHot;
-    public AudioSource MusicSourceNotHot;
+    //public AudioClip MusicClipNotHot;
+    //public AudioSource MusicSourceNotHot;
 
     private SpriteRenderer mySpriteRenderer;
 	private BoxCollider2D myCollider;
@@ -21,9 +21,6 @@ public class EnemySatisfaction : MonoBehaviour {
 	void Start () {
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		myCollider = GetComponentInChildren<BoxCollider2D>();
-        MusicSourceKum.clip = MusicClipKum;
-        MusicSourceShot.clip = MusicClipShot;
-        MusicSourceNotHot.clip = MusicClipNotHot;
         fed = false;
 
 		GameObject player = GameObject.FindWithTag("Player");
@@ -32,6 +29,11 @@ public class EnemySatisfaction : MonoBehaviour {
 			myGamemode = player.GetComponent<Gamemode>();
 		else
 			Debug.Log("Cannot find 'Player' object!");
+
+
+		MusicSourceKum.clip = MusicClipKum;
+		MusicSourceShot.clip = MusicClipShot;
+		//MusicSourceNotHot.clip = MusicClipNotHot;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -46,13 +48,7 @@ public class EnemySatisfaction : MonoBehaviour {
 				Satisfied(false);
 			else
 				NotSatisfied();
-            MusicSourceNotHot.Play();
-            //if (other.name == "Red" && name == "RedSheep")
-            //	Satisfied();
-            //if (other.name == "Yellow" && name == "YellowSheep")
-            //	Satisfied();
-            //if (other.name == "Blue" && name == "BlueSheep")
-            //	Satisfied();
+            //MusicSourceNotHot.Play();
         }
 	}
 
@@ -63,6 +59,8 @@ public class EnemySatisfaction : MonoBehaviour {
         MusicSourceShot.Play();
         MusicSourceKum.Play();
 		fed = true;
+
+		GetComponent<EnemySatisfaction>().BroadcastMessage("Satisfied");
 
 		if (myGamemode != null)
 			myGamemode.BroadcastMessage("SheepSatisfied");

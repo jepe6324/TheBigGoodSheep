@@ -8,17 +8,6 @@ public class Gamemode : MonoBehaviour {
 
 	public float iceCreamTimer;
 	public float iceCubeValue;
-	//{
-	//	get
-	//	{
-	//		return iceCubeValue;
-	//	}
-	//	set
-	//	{
-	//		IceCubeValue = iceCubeValue;
- //           fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
- //       }
- //   }
     public float iceCreamTimerMax;
 
     private float fillAmount;
@@ -41,6 +30,7 @@ public class Gamemode : MonoBehaviour {
 
     private float iceCreamFrames;
 	private float rainbowFrames;
+
 	// Use this for initialization
 	void Start () {
 		ScoreVariables.score = 0;
@@ -126,11 +116,13 @@ public class Gamemode : MonoBehaviour {
 
 	void SheepSatisfied() // This should be called when a sheep is fed with the right color
 	{
+		//Debug.Log("Satisfied!");
 		ScoreVariables.score += 100;
 	}
 
-	void SheepUnsatisfied() // This should be called when a sheep is fed with the wrong color, or not at all.
+	void SheepUnsatisfied() // This should be called when a sheep is fed with the wrong color, or when they have not been fed at all.
 	{
+		//Debug.Log("Unsatisfied");
 		ScoreVariables.score -= 50;
 	}
 
