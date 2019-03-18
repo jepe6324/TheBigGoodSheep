@@ -60,7 +60,7 @@ public class EnemySatisfaction : MonoBehaviour {
         MusicSourceKum.Play();
 		fed = true;
 
-		GetComponent<EnemySatisfaction>().BroadcastMessage("Satisfied");
+		GetComponent<EnemyMovement>().BroadcastMessage("setSatisfied");
 
 		if (myGamemode != null)
 			myGamemode.BroadcastMessage("SheepSatisfied");
