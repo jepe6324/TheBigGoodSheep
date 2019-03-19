@@ -198,8 +198,6 @@ MonoBehaviour:
   MusicSourceKum: {fileID: 7278845931041200693}
   MusicClipShot: {fileID: 8300000, guid: de9363e0cc12aba4383ef9645c846400, type: 3}
   MusicSourceShot: {fileID: 82703769011135206}
-  MusicClipNotHot: {fileID: 0}
-  MusicSourceNotHot: {fileID: 0}
 --- !u!114 &114168176981230116
 MonoBehaviour:
   m_ObjectHideFlags: 0
