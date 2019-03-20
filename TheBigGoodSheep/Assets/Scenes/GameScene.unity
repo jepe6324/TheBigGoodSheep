@@ -1730,6 +1730,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -4.77
       objectReference: {fileID: 0}
+    - target: {fileID: 2176996926317617431, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 3}
+      propertyPath: speedIncreaseFactor
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2176996926317617431, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 3}
+      propertyPath: scoreThreshold
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07615370f0d97224b81a36b8c3e3655e, type: 3}
 --- !u!114 &1721169297 stripped

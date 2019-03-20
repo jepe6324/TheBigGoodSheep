@@ -118,6 +118,7 @@ public class Gamemode : MonoBehaviour {
 	{
 		//Debug.Log("Satisfied!");
 		ScoreVariables.score += 100;
+		GetComponent<gameSpeedUp>().BroadcastMessage("IncrementHiddenScore");
 	}
 
 	void SheepUnsatisfied() // This should be called when a sheep is fed with the wrong color, or when they have not been fed at all.

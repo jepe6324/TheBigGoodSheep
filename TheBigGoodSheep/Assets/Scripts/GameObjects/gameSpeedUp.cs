@@ -3,21 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class gameSpeedUp : MonoBehaviour {
+public class gameSpeedUp : MonoBehaviour
+{
+	public float speedIncreaseFactor;
+	public float scoreThreshold;
 
+	private int hiddenScore;
 
-	private int hiddenScore = ScoreVariables.score;
+	void Update()
+	{
+		if (hiddenScore >= scoreThreshold)
+		{
+			hiddenScore = 0;
 
-	void Update () {
-
-		for (int i = 1; i < 10; i++) {
-
-			if (hiddenScore == 1500)
-			{
-				hiddenScore = 0;
-
-				EnemyStats.enemySpeed += 0.1f;
+			EnemyStats.enemySpeed += speedIncreaseFactor;
 		}
 	}
-}
+
+	void IncrementHiddenScore()
+	{
+		hiddenScore += 100;
+	}
 }
