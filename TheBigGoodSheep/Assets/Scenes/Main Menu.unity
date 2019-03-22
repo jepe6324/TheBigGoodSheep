@@ -755,8 +755,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonFx: {fileID: 952974461}
-  hoverFx: {fileID: 8300000, guid: 6fe0f1cb780bf2c4baa73f2587d640f0, type: 3}
-  clickFx: {fileID: 8300000, guid: de9363e0cc12aba4383ef9645c846400, type: 3}
+  hoverFx: {fileID: 8300000, guid: ec96adb7180ae3e46a5763a828f55ebd, type: 3}
+  clickFx: {fileID: 8300000, guid: 6fe0f1cb780bf2c4baa73f2587d640f0, type: 3}
 --- !u!114 &952974463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,7 +792,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 952974462}
-          m_MethodName: HoverSound
+          m_MethodName: ClickSound
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -916,7 +916,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 705b1e7bab47b3445a11901d943938ac, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8e510117186afb84b93e78cd9c40312b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1255,8 +1255,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonFx: {fileID: 1954386412}
-  hoverFx: {fileID: 8300000, guid: 6fe0f1cb780bf2c4baa73f2587d640f0, type: 3}
-  clickFx: {fileID: 8300000, guid: de9363e0cc12aba4383ef9645c846400, type: 3}
+  hoverFx: {fileID: 8300000, guid: ec96adb7180ae3e46a5763a828f55ebd, type: 3}
+  clickFx: {fileID: 8300000, guid: 6fe0f1cb780bf2c4baa73f2587d640f0, type: 3}
 --- !u!114 &1954386414
 MonoBehaviour:
   m_ObjectHideFlags: 0

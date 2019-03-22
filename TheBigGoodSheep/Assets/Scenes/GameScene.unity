@@ -1127,10 +1127,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d4d1b9c58dbdf6b4fa6d7b95a52e0d77, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 05088651ff9c68549a02af174452056d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.69
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1226,7 +1226,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: cb32d723d5412b24785a2f9db0b78058, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.16
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -1584,7 +1584,7 @@ PrefabInstance:
         type: 3}
       propertyPath: MusicClipObstacle
       value: 
-      objectReference: {fileID: 8300000, guid: d4d1b9c58dbdf6b4fa6d7b95a52e0d77, type: 3}
+      objectReference: {fileID: 8300000, guid: 05088651ff9c68549a02af174452056d, type: 3}
     - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
         type: 3}
       propertyPath: MusicSourceObstacle
@@ -1740,6 +1740,11 @@ PrefabInstance:
       propertyPath: scoreThreshold
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 82697331435579334, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ead3ba000df15ab44a69536fbe08770f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07615370f0d97224b81a36b8c3e3655e, type: 3}
 --- !u!114 &1721169297 stripped
