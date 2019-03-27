@@ -30,9 +30,6 @@ public class Gamemode : MonoBehaviour {
     public AudioClip MusicClipRainbow;
     public AudioSource MusicSourceRainbow;
 
-    private float iceCreamFrames;
-	private float rainbowFrames;
-
 	// Use this for initialization
 	void Start () {
 		ScoreVariables.score = 0;
@@ -47,7 +44,6 @@ public class Gamemode : MonoBehaviour {
 
         HandleBar(content, fillAmount);
         HandleBar(rainbowBar, rainbowFillAmount);
-        iceCreamFrames++; // Every frame we increment the frame counter
 
 		if (rainbowTimer > 0)
 		{
@@ -55,7 +51,6 @@ public class Gamemode : MonoBehaviour {
 		}
 		
 		iceCreamTimer = clampIceCreamTimer( iceCreamTimer - Time.deltaTime);  // Remove one second from the icecream timer
-		iceCreamFrames = 0;         // Reset the frame counter to 0 again so that we can start counting on the second
 		if (iceCreamTimer <= 0)
 		{
 			SceneManager.LoadScene("GameOver"); // If the icecream timer reaches 0 we lose
@@ -91,20 +86,17 @@ public class Gamemode : MonoBehaviour {
 			Destroy(other.gameObject);
             MusicSourceIce.Play();
             iceCreamTimer = clampIceCreamTimer(iceCreamTimer + iceCubeValue);
-			iceCreamFrames = 0;
 		}
 		else if (other.tag == "Rainbow")
 		{
 			Destroy(other.gameObject);
 			rainbowTimer += rainbowDuration;
-			rainbowFrames = 0;
             MusicSourceRainbow.Play();
 		}
 		else if (other.tag == "Obstacle")
 		{
 			Destroy(other.gameObject);
 			iceCreamTimer -= obstaclePenalty;
-			iceCreamFrames = 0;
             MusicSourceObstacle.Play();
         }
 	}
