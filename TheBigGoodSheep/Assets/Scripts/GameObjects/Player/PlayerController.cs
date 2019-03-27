@@ -87,6 +87,8 @@ public class PlayerController : MonoBehaviour {
 		movement.y *= speedY;
 		myRigidbody.velocity = movement;
 
+		//speedY++;
+
 		myRigidbody.position = new Vector2(
 			Mathf.Clamp(myRigidbody.position.x, boundary.xMin, boundary.xMax),
 			Mathf.Clamp(myRigidbody.position.y, boundary.yMin, boundary.yMax));
