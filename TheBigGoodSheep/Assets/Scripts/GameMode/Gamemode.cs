@@ -17,7 +17,7 @@ public class Gamemode : MonoBehaviour {
     public Image rainbowBar;
 
     public float rainbowTimer;
-	public int rainbowDuration;
+	public float rainbowDuration;
 
 	public float obstaclePenalty;
 
@@ -44,7 +44,7 @@ public class Gamemode : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
         HandleBar(content, fillAmount);
         HandleBar(rainbowBar, rainbowFillAmount);
@@ -52,27 +52,18 @@ public class Gamemode : MonoBehaviour {
 
 		if (rainbowTimer > 0)
 		{
-			rainbowFrames++;
-
-			if (rainbowFrames == 60)
-			{
-				rainbowTimer--;
-				rainbowFrames = 0;
-			}
+			rainbowTimer-= Time.deltaTime;
 		}
-		else if (iceCreamFrames == 60) // When the frame counter reaches 60 a whole second has passed
+		
+		iceCreamTimer = clampIceCreamTimer( iceCreamTimer - Time.deltaTime);  // Remove one second from the icecream timer
+		iceCreamFrames = 0;         // Reset the frame counter to 0 again so that we can start counting on the second
+		if (iceCreamTimer <= 0)
 		{
-			iceCreamTimer = clampIceCreamTimer( iceCreamTimer - 1);  // Remove one second from the icecream timer
-			iceCreamFrames = 0;         // Reset the frame counter to 0 again so that we can start counting on the second
-			if (iceCreamTimer <= 0)
-			{
-				SceneManager.LoadScene("GameOver"); // If the icecream timer reaches 0 we lose
-			}
+			SceneManager.LoadScene("GameOver"); // If the icecream timer reaches 0 we lose
 		}
 
 		fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
         rainbowFillAmount = Map(rainbowTimer, 0, rainbowDuration, 0, 1);
-        timerText.text = "" + iceCreamTimer;
 		scoreText.text = "" + ScoreVariables.score;
 
 		if (ScoreVariables.score > ScoreVariables.highScore)
