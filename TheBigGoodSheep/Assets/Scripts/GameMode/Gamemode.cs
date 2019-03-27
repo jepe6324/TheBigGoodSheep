@@ -105,6 +105,8 @@ public class Gamemode : MonoBehaviour {
 	{
 		//Debug.Log("Satisfied!");
 		ScoreVariables.score += 100;
+		if (ScoreVariables.score > ScoreVariables.sessionRecord)
+			ScoreVariables.sessionRecord = ScoreVariables.score;
 		GetComponent<gameSpeedUp>().BroadcastMessage("IncrementHiddenScore");
 	}
 
