@@ -9,7 +9,7 @@ public class ScoreSystem : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		score.text = "Score: " + ScoreVariables.score;
+		score.text = "Your Score: " + ScoreVariables.score;
 		
 		if (ScoreVariables.highScoreBroken == true)
 		{

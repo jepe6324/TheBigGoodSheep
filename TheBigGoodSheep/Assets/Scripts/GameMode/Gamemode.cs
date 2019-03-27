@@ -21,7 +21,6 @@ public class Gamemode : MonoBehaviour {
 
 	public float obstaclePenalty;
 
-	public Text timerText;
 	public Text scoreText;
 
     public AudioClip MusicClipIce;
@@ -64,6 +63,7 @@ public class Gamemode : MonoBehaviour {
 
 		fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
         rainbowFillAmount = Map(rainbowTimer, 0, rainbowDuration, 0, 1);
+
 		scoreText.text = "" + ScoreVariables.score;
 
 		if (ScoreVariables.score > ScoreVariables.highScore)
