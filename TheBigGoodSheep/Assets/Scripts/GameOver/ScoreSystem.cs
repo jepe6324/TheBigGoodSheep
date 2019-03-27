@@ -18,6 +18,8 @@ public class ScoreSystem : MonoBehaviour {
 		}
 
 		highScore.text = "" + PlayerPrefs.GetInt("highScore", 0);
+
+        //resetHighScore();
 	}
 	
 	// Update is called once per frame
