@@ -9,7 +9,7 @@ public class ScoreSystem : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		score.text = "Your Score: " + ScoreVariables.score;
+		score.text = "Your Score: " + ScoreVariables.sessionRecord;
 		
 		if (ScoreVariables.highScoreBroken == true)
 		{
@@ -38,6 +38,7 @@ public class ScoreSystem : MonoBehaviour {
 public class ScoreVariables
 {
 	static public int score = 0;
+	static public int sessionRecord = 0;
 	static public int highScore = PlayerPrefs.GetInt("highScore");    // this is reachable from everywhere
 	static public bool highScoreBroken = false;
 }
