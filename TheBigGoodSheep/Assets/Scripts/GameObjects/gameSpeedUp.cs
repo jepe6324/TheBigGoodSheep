@@ -10,6 +10,11 @@ public class gameSpeedUp : MonoBehaviour
 
 	private int hiddenScore;
 
+	void Start()
+	{
+		EnemyStats.enemySpeed = EnemyStats.startSpeed;
+	}
+
 	void Update()
 	{
 		if (hiddenScore >= scoreThreshold)

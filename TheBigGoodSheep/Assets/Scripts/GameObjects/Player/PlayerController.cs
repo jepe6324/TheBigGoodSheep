@@ -16,27 +16,22 @@ public class PlayerController : MonoBehaviour {
 	public AudioClip MusicClip;
 	public AudioSource MusicSource;
 
-	public GameObject iceCream;
 	public Transform iceCreamSpawn;
 
-	public Sprite redIceCream;
-	public Sprite yellowIceCream;
-	public Sprite blueIceCream;
-	public Sprite rainbowIceCream;
+	public GameObject redIceCream;
+	public GameObject yellowIceCream;
+	public GameObject blueIceCream;
+	public GameObject rainbowIceCream;
 
 	public SpriteRenderer colorRotatorRenderer;
 	public Sprite colorRotatorYellow;
 	public Sprite colorRotatorRed;
 	public Sprite colorRotatorBlue;
 
-	public Sprite playerSpriteYellow;
-	public Sprite playerSpriteRed;
-	public Sprite playerSpriteBlue;
-
-	private SpriteRenderer mySpriteRenderer;
-	private Sprite chosenIceCream;
+	private Animator myAnimator;
+	private GameObject chosenIceCream;
 	private string color;
-	private int rotationInt = 1; // I use modulo to determine what colour to set the icecream to
+	private int rotationInt = 1; // I use LoopInt() to determine what colour to set the icecream to
 	private float nextFire;
 	Rigidbody2D myRigidbody;
 	Gamemode myGamemode;
@@ -46,11 +41,11 @@ public class PlayerController : MonoBehaviour {
 		chosenIceCream = yellowIceCream;
 		color = "Yellow";
 		myRigidbody = GetComponent<Rigidbody2D>();
-		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		myAnimator = GetComponentInChildren<Animator>();
 		myGamemode = GetComponent<Gamemode>();
 		MusicSource.clip = MusicClip;
 
-		mySpriteRenderer.sprite = playerSpriteYellow;
+		myAnimator.SetInteger("ColourInt", 1);
 	}
 
 	void Update()
@@ -60,9 +55,7 @@ public class PlayerController : MonoBehaviour {
 			if (myGamemode.rainbowTimer > 0)
 			{
 				nextFire = Time.time + fireRate;
-				GameObject clone = Instantiate(iceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
-
-				clone.GetComponentInChildren<SpriteRenderer>().sprite = rainbowIceCream;
+				GameObject clone = Instantiate(rainbowIceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
 				clone.name = "Rainbow";
 
 				MusicSource.Play();
@@ -70,9 +63,7 @@ public class PlayerController : MonoBehaviour {
 			else
 			{
 				nextFire = Time.time + fireRate;
-				GameObject clone = Instantiate(iceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
-
-				clone.GetComponentInChildren<SpriteRenderer>().sprite = chosenIceCream;
+				GameObject clone = Instantiate(chosenIceCream, iceCreamSpawn.position, iceCreamSpawn.rotation);
 				clone.name = color;
 
 				myGamemode.iceCreamTimer--;
@@ -105,11 +96,11 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (Input.GetAxis("Rotate") < 0)
 		{
-			rotationInt = loopInt(rotationInt + 1, 1, 3);
+			rotationInt = LoopInt(rotationInt + 1, 1, 3);
 		}
 		else
 		{
-			rotationInt = loopInt(rotationInt - 1, 1, 3);
+			rotationInt = LoopInt(rotationInt - 1, 1, 3);
 		}
 		
 		switch (rotationInt)
@@ -118,19 +109,19 @@ public class PlayerController : MonoBehaviour {
 				color = "Yellow";
 				chosenIceCream = yellowIceCream;
 				colorRotatorRenderer.sprite = colorRotatorYellow;
-				mySpriteRenderer.sprite = playerSpriteYellow;
+				myAnimator.SetInteger("ColourInt", 1);
 				break;
 			case 2:
 				color = "Red";
 				chosenIceCream = redIceCream;
 				colorRotatorRenderer.sprite = colorRotatorRed;
-				mySpriteRenderer.sprite = playerSpriteRed;
+				myAnimator.SetInteger("ColourInt", 2);
 				break;
 			case 3:
 				color = "Blue";
 				chosenIceCream = blueIceCream;
 				colorRotatorRenderer.sprite = colorRotatorBlue;
-				mySpriteRenderer.sprite = playerSpriteBlue;
+				myAnimator.SetInteger("ColourInt", 3);
 				break;
 			default:
 				break;
@@ -138,7 +129,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 
-	int loopInt(int value, int min, int max)
+	int LoopInt(int value, int min, int max)
 	{
 		if (value > max)
 			return min;
