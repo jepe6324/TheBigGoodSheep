@@ -230,7 +230,7 @@ ParticleSystem:
   prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
-  autoRandomSeed: 1
+  autoRandomSeed: 0
   useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
@@ -4965,7 +4965,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 930088219, guid: 87494b5cffb1c3d4f82bb74272a5232b, type: 3}
       propertyPath: m_FillAmount
-      value: 1
+      value: 0.569
       objectReference: {fileID: 0}
     - target: {fileID: 1671272979872403786, guid: 87494b5cffb1c3d4f82bb74272a5232b,
         type: 3}
@@ -5152,7 +5152,7 @@ ParticleSystem:
   prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
-  autoRandomSeed: 1
+  autoRandomSeed: 0
   useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
