@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045130864777790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.11, y: 0.72, z: 0}
+  m_LocalPosition: {x: 0.16, y: 0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4960597070895482}
@@ -96,7 +96,6 @@ MonoBehaviour:
     yMax: 3
   MusicClip: {fileID: 8300000, guid: 2ab9ebd7eb8734d41b3fbb1629cd6d5a, type: 3}
   MusicSource: {fileID: 82505894882061868}
-  iceCream: {fileID: 1773728254646594, guid: b0f56d48b74ddfc4eb27d6705094db48, type: 3}
   iceCreamSpawn: {fileID: 4104877370172240}
   redIceCream: {fileID: 21300004, guid: a68dc70613093de4180358f5589c2fd9, type: 3}
   yellowIceCream: {fileID: 21300000, guid: a68dc70613093de4180358f5589c2fd9, type: 3}
@@ -126,7 +125,6 @@ MonoBehaviour:
   rainbowTimer: 0
   rainbowDuration: 5
   obstaclePenalty: 5
-  timerText: {fileID: 0}
   scoreText: {fileID: 0}
   MusicClipIce: {fileID: 8300000, guid: 1d05bc6735ce35248a5103d290ee5e41, type: 3}
   MusicSourceIce: {fileID: 82940926463160116}
