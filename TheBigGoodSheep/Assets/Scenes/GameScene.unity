@@ -1478,6 +1478,18 @@ MonoBehaviour:
   obstacle: {fileID: 1057159103957744, guid: 56a6dfdbbcd2354438c2615077f1e2d3, type: 3}
   spawnFreqRangeLow: 3
   spawnFreqRangeHigh: 5
+--- !u!114 &1493611486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3592947251068862115, guid: 07615370f0d97224b81a36b8c3e3655e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1581724474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1525269676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1493938554865578, guid: d11ac90392dd1074298c7501f26aa68b,
@@ -1612,6 +1624,11 @@ PrefabInstance:
       propertyPath: MusicSourceObstacle
       value: 
       objectReference: {fileID: 1156022228}
+    - target: {fileID: 114649722112841770, guid: 07615370f0d97224b81a36b8c3e3655e,
+        type: 3}
+      propertyPath: rainbowBar
+      value: 
+      objectReference: {fileID: 1493611486}
     - target: {fileID: 6197619659867682362, guid: 07615370f0d97224b81a36b8c3e3655e,
         type: 3}
       propertyPath: m_LocalRotation.x

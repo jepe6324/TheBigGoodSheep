@@ -13,7 +13,10 @@ public class Gamemode : MonoBehaviour {
     private float fillAmount;
     public Image content;
 
-	public float rainbowTimer;
+    private float rainbowFillAmount;
+    public Image rainbowBar;
+
+    public float rainbowTimer;
 	public int rainbowDuration;
 
 	public float obstaclePenalty;
@@ -43,8 +46,8 @@ public class Gamemode : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        HandleBar();
-
+        HandleBar(content, fillAmount);
+        HandleBar(rainbowBar, rainbowFillAmount);
         iceCreamFrames++; // Every frame we increment the frame counter
 
 		if (rainbowTimer > 0)
@@ -68,8 +71,8 @@ public class Gamemode : MonoBehaviour {
 		}
 
 		fillAmount = Map(iceCreamTimer, 0, iceCreamTimerMax, 0, 1);
-
-		timerText.text = "" + iceCreamTimer;
+        rainbowFillAmount = Map(rainbowTimer, 0, rainbowDuration, 0, 1);
+        timerText.text = "" + iceCreamTimer;
 		scoreText.text = "" + ScoreVariables.score;
 
 		if (ScoreVariables.score > ScoreVariables.highScore)
@@ -79,9 +82,10 @@ public class Gamemode : MonoBehaviour {
 		}
 	}
 
-    private void HandleBar()
+    private void HandleBar(Image content,float fillAmount)
     {
         content.fillAmount = fillAmount;
+   
     }
 
     private float Map(float value, float inMin, float inMax, float outMin, float outMax)
