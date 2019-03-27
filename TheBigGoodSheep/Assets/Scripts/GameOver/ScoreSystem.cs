@@ -17,7 +17,7 @@ public class ScoreSystem : MonoBehaviour {
 			PlayerPrefs.SetInt("highScore", ScoreVariables.highScore);
 		}
 
-		highScore.text = "Hi-Score: " + PlayerPrefs.GetInt("highScore", 0);
+		highScore.text = "" + PlayerPrefs.GetInt("highScore", 0);
 	}
 	
 	// Update is called once per frame
