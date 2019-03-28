@@ -71,10 +71,9 @@ public class EnemySatisfaction : MonoBehaviour {
 	void NotSatisfied()
 	{
 		//mySpriteRenderer.sprite = unsatisfiedSprite; // Use this if you want to give the sheep a special sprite when angry
-		Destroy(myCollider);
 		fed = true;
 
-		if (myGamemode != null)
+		if (myGamemode != null || fed == false)
 			myGamemode.BroadcastMessage("SheepUnsatisfied");
 		else
 			Debug.Log("Cannot find the 'gameMode' script");
