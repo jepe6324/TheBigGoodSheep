@@ -32,6 +32,7 @@ public class Gamemode : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		ScoreVariables.sessionRecord = 0;
 		ScoreVariables.score = 0;
 		ScoreVariables.highScoreBroken = false;
         MusicSourceIce.clip = MusicClipIce;
